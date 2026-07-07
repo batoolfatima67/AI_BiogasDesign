@@ -1,25 +1,44 @@
+"""
+=========================================================
+BioDesignAI
+Hero Section
+
+Author : Batool Fatima
+Version : 1.0
+=========================================================
+"""
+
 import streamlit as st
 
 
-def show_hero():
+def render_hero():
+    """
+    Display the hero banner on the Home page.
+    """
 
     st.markdown(
         """
 <div class="hero">
 
-# Intelligent Biogas Plant Design
+<h1>🌱 BioDesignAI</h1>
 
-### Design • Analyze • Visualize • Optimize
+<h3>Intelligent Biogas Plant Design System</h3>
 
-✔ Engineering Calculations
+<p>
+Design • Analyze • Visualize • Optimize
+</p>
 
-✔ Automatic Drawings
+<hr>
 
-✔ Cost Estimation
+<p>✔ Engineering Calculations</p>
 
-✔ Interactive 3D Models
+<p>✔ Automatic Plant Drawings</p>
 
-✔ PDF Reports
+<p>✔ Cost Estimation</p>
+
+<p>✔ Interactive 3D Models</p>
+
+<p>✔ PDF Reports</p>
 
 </div>
 """,
