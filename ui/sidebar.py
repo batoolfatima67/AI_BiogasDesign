@@ -2,10 +2,15 @@
 =========================================================
 BioDesignAI Sidebar
 Version 1.0
+
+Author : Batool Fatima
 =========================================================
 """
 
+from pathlib import Path
+
 import streamlit as st
+
 from ui.theme import toggle_theme
 
 
@@ -16,30 +21,31 @@ def render_sidebar():
     Returns
     -------
     str
-        Selected page name.
+        Current selected page.
     """
 
     with st.sidebar:
 
-        # ---------------------------------------------------
-        # Logo
-        # ---------------------------------------------------
+        # =====================================================
+        # LOGO
+        # =====================================================
 
-        st.image("assets/logo.png", width=120)
+        project_root = Path(__file__).resolve().parent.parent
+        logo_path = project_root / "assets" / "logo.png"
 
-        st.markdown(
-            """
-            # 🌱 BioDesignAI
-            """
-        )
+        if logo_path.exists():
+            st.image(str(logo_path), width=120)
+        else:
+            st.warning("Logo not found")
+            st.markdown("# 🌱")
 
+        st.markdown("# BioDesignAI")
         st.caption("AI-Powered Biogas Plant Design")
-
         st.divider()
 
-        # ---------------------------------------------------
+        # =====================================================
         # HOME
-        # ---------------------------------------------------
+        # =====================================================
 
         st.markdown("### 🏠 Home")
 
@@ -48,9 +54,9 @@ def render_sidebar():
 
         st.divider()
 
-        # ---------------------------------------------------
+        # =====================================================
         # DESIGN
-        # ---------------------------------------------------
+        # =====================================================
 
         st.markdown("### 📐 Design")
 
@@ -62,9 +68,9 @@ def render_sidebar():
 
         st.divider()
 
-        # ---------------------------------------------------
+        # =====================================================
         # VISUALIZATION
-        # ---------------------------------------------------
+        # =====================================================
 
         st.markdown("### 🖼 Visualization")
 
@@ -76,9 +82,9 @@ def render_sidebar():
 
         st.divider()
 
-        # ---------------------------------------------------
+        # =====================================================
         # ANALYSIS
-        # ---------------------------------------------------
+        # =====================================================
 
         st.markdown("### 📊 Analysis")
 
@@ -93,9 +99,9 @@ def render_sidebar():
 
         st.divider()
 
-        # ---------------------------------------------------
+        # =====================================================
         # REPORTS
-        # ---------------------------------------------------
+        # =====================================================
 
         st.markdown("### 📄 Reports")
 
@@ -104,31 +110,34 @@ def render_sidebar():
 
         st.divider()
 
-        # ---------------------------------------------------
+        # =====================================================
         # SETTINGS
-        # ---------------------------------------------------
+        # =====================================================
 
         st.markdown("### ⚙ Settings")
 
-        if st.button(
-            f"Switch to {'Dark' if st.session_state.theme == 'Light' else 'Light'} Mode",
-            use_container_width=True,
-        ):
+        theme_label = (
+            "Switch to Dark Mode"
+            if st.session_state.theme == "Light"
+            else "Switch to Light Mode"
+        )
+
+        if st.button(theme_label, use_container_width=True):
             toggle_theme()
             st.rerun()
 
         st.divider()
 
-        # ---------------------------------------------------
+        # =====================================================
         # ABOUT
-        # ---------------------------------------------------
+        # =====================================================
 
         if st.button("ℹ About", use_container_width=True):
             st.session_state.current_page = "About"
 
         st.divider()
 
-        st.caption("BioDesignAI Version 1.0")
+        st.caption("Version 1.0")
         st.caption("Developed by Batool Fatima")
 
     return st.session_state.current_page
