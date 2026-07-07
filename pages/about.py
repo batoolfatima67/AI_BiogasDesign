@@ -1,28 +1,49 @@
+"""
+=========================================================
+BioDesignAI
+About Page
+
+Author : Batool Fatima
+Version : 1.0
+=========================================================
+"""
+
 import streamlit as st
 
-st.title("ℹ About")
 
-st.markdown("""
+def show():
+    """
+    Display the About page.
+    """
+
+    st.title("ℹ️ About BioDesignAI")
+
+    st.markdown(
+        """
 ## BioDesignAI
 
-Version 1.0
+BioDesignAI is an AI-powered Engineering Design and Decision Support System
+for biogas plants.
 
-BioDesignAI is an open-source engineering software developed using Python and Streamlit.
+### Version
+1.0
 
-### Objectives
-
-- Simplify biogas plant design
-- Automate engineering calculations
-- Generate engineering drawings
-- Support sustainable energy solutions
-
-### Developed By
-
+### Developer
 Batool Fatima
 
-Agricultural Engineer
+### Features
 
-Python Developer
+- Engineering Calculations
+- Digester Design
+- Dome Design
+- Material Estimation
+- Cost Estimation
+- Engineering Drawings
+- PDF Reports
+- AI Recommendations
 
-GIS & Remote Sensing Analyst
-""")
+---
+Future versions will include interactive 3D visualization,
+optimization, and AI-assisted design.
+"""
+    )
